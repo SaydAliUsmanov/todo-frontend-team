@@ -1,0 +1,15 @@
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+}
+.header-logo {
+  font-size: 25px;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
+.header-wrapper input {
+  outline: none;
+}
