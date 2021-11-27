@@ -19,11 +19,11 @@ const Todos = ({ id }) => {
         ? "Loading todos ..."
         : sortTodos.length > 0 ? sortTodos.map((item) => {
           if (item.category === id) {
-            return <Todo key={item._id} important={item.important.text} title={item.title} text={item.text} />;
+            return <Todo key={item._id} important={item.important.text} title={item.title} text={item.text} dateCreate={item.createdAt}/>;
           }
         }) : todos.map((item) => {
             if (item.category === id) {
-              return <Todo key={item._id} important={item.important.text} title={item.title} text={item.text} />;
+              return <Todo key={item._id} important={item.important.text} title={item.title} text={item.text}  dateCreate={item.createdAt}/>;
             }
           })}
     </div>
