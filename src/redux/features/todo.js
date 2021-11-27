@@ -50,6 +50,24 @@ export const reducer = (state = initialState, action) => {
         ...state,
         sortTodos: []
       }
+    case "todos/delete/pending":
+      return {
+        ...state,
+        todos: state.todos.map((todo) => {
+          if (todo._id === action.payload) {
+            return {
+              ...todo,
+              deleting: true,
+            };
+          }
+          return todo;
+        }),
+      };
+    case "todos/delete/fulfilled":
+      return {
+        ...state,
+        todos: state.todos.filter((item) => item._id !== action.payload),
+      };
     default:
       return state;
   }
@@ -102,5 +120,23 @@ export const addTodo = (title, text, value) => {
           payload: todo,
         });
       });
+  };
+};
+export const deleteTodo = (id) => {
+  return (dispatch) => {
+    dispatch({ type: "todos/delete/pending", payload: id });
+    fetch(`http://localhost:4000/todos/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    }).then((res) => {
+      if (res.status === 200) {
+        dispatch({
+          type: "todos/delete/fulfilled",
+          payload: id,
+        });
+      }
+    });
   };
 };

@@ -11,3 +11,19 @@
 #Average{
   background-color: green!important;
 }
+.wrap-todo{
+  position: relative;
+}
+.delete-btn{
+  position: absolute;
+  width: 30px;
+  right: 6px;
+  background-color: transparent;
+  border: transparent;
+}
+.spinner-border{
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 5px;
+}
