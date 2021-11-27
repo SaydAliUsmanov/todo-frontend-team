@@ -3,9 +3,9 @@ import "../../index.css";
 
 const Todo = ({ important, title, text, dateCreate }) => {
   const date = new Date(dateCreate).toLocaleString();
-  console.log(date);
+
   return (
-    <div className="row g-0" id="priority">
+    <div className="row g-0" >
       <div className="col-1 bg-warning" id={important}></div>
       <div className="col-11">
         <div className="card-body">

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCategories } from "../../redux/features/todo";
+import {loadCategories, loadTodos} from "../../redux/features/todo";
 import Category from "./Category";
 
 const Categories = () => {
@@ -12,6 +12,7 @@ const Categories = () => {
 
   useEffect(() => {
     dispatch(loadCategories());
+    dispatch(loadTodos())
   }, [dispatch]);
 
   return (
