@@ -1,30 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { loadCategories } from "../../redux/features/todo";
+import Category from "./Category";
 
 const Categories = () => {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
+  const loading = useSelector((state) => state.loading);
+
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, []);
+
   return (
     <div className="main row d-flex ">
-      <div className="card col mx-1">
-        <h5 className="card-header text-center">New</h5>
-        <div className="card-body"></div>
-      </div>
-      <div className="card col mx-1">
-        <h5 className="card-header text-center">Assigned</h5>
-        <div className="card-body"></div>
-      </div>
-      <div className="card col mx-1">
-        <h5 className="card-header text-center">in Progress</h5>
-        <div className="card-body"></div>
-      </div>
-      <div className="card col mx-1">
-        <h5 className="card-header text-center">On Hold</h5>
-        <div className="card-body"></div>
-      </div>
-      <div className="card col mx-1">
-        <h5 className="card-header text-center">Close</h5>
-        <div className="card-body"></div>
-      </div>
+      {loading
+        ? "Loading content ..."
+        : categories.map((item) => {
+            return <Category id={item._id} text={item.text} />;
+          })}
     </div>
   );
 };

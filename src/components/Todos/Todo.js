@@ -1,9 +1,10 @@
 import React from 'react';
+import '../../index.css'
 
 const Todo = () => {
   return (
     <>
-      <div className="card mb-3 ms-5" id="card">
+      <div className="card mb-3 ms-5 " id="card">
         <div className="row g-0"  id="priority">
           <div className="col-1 bg-warning">
           </div>

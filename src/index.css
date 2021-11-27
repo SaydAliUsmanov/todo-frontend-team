@@ -1,5 +1,6 @@
 #card{
-  width: 245px;
+  width: 100%;
+  margin-left: 0!important;
 }
 #priority {
   align-items: stretch;
