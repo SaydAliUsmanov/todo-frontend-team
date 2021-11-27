@@ -25,6 +25,8 @@ const AddTodo = () => {
   }
   const handleAddTodo = () => {
     dispatch(addTodo(title, name, value))
+    setTitle("")
+    setName("")
   }
 
   return (

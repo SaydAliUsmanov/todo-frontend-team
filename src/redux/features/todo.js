@@ -2,6 +2,7 @@ const initialState = {
   categories: [],
   todos: [],
   loading: false,
+  sortTodos: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -39,6 +40,16 @@ export const reducer = (state = initialState, action) => {
         todos: [...state.todos, action.payload],
         adding: false,
       };
+    case 'todos/sort':
+      return {
+        ...state,
+        sortTodos: action.payload
+      }
+    case 'todos/sort/clean':
+      return {
+        ...state,
+        sortTodos: []
+      }
     default:
       return state;
   }
