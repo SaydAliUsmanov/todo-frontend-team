@@ -5,3 +5,9 @@
 #priority {
   align-items: stretch;
 }
+#High{
+  background-color: red!important;
+}
+#Average{
+  background-color: green!important;
+}

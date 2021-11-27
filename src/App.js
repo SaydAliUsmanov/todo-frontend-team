@@ -1,4 +1,4 @@
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import MainContent from "./components/Main";
 

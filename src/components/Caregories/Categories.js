@@ -12,14 +12,14 @@ const Categories = () => {
 
   useEffect(() => {
     dispatch(loadCategories());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="main row d-flex ">
       {loading
         ? "Loading content ..."
         : categories.map((item) => {
-            return <Category id={item._id} text={item.text} />;
+            return <Category key={item._id} id={item._id} text={item.text} />;
           })}
     </div>
   );
